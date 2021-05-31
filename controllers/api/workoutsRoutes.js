@@ -4,7 +4,21 @@ const db = require("../../models");
 
 
 router.get("/", (req, res) => {
-    db.Workout.find({})
+    // db.Workout.find({})
+    db.Workout.aggregate(
+        [
+            {
+                $addFields: {
+                    totalDuration: {$sum: "$exercises.duration"}
+                }
+            },
+            // {
+            //     $addFields: { totalDuration:
+            //       { $add: [ "$totalDuration" ] } }
+            // }
+        ]
+)
+
     .then(data => {
         res.status(200).json(data)
     })
@@ -38,6 +52,34 @@ router.put("/:workoutId", (req, res) => {
             error: err
         });
     }) 
+})
+
+router.get('/range', (req, res) => {
+    // db.Workout.find({})
+    
+
+        db.Workout.aggregate(
+            [
+                {
+                    $addFields: {
+                        totalDuration: {$sum: "$exercises.duration"} 
+                    }
+                },
+                // {
+                //     $addFields: { totalDuration:
+                //       { $add: [ "$totalDuration" ] } }
+                // }
+            ]
+    )
+    .then(data => {
+        console.log(data)
+        res.status(200).json(data)
+    })
+    .catch(err => {
+        res.status(500).json({
+            error: err
+        })
+    })
 })
 
 module.exports = router;
