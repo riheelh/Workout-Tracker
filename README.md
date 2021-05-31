@@ -12,7 +12,6 @@ A fitness app to log daily workouts of type, sets, reps, weight and duration of 
 
 - [Installation](#Installation)<br>
 - [Usage](#Usage)<br>
-- [Tests](#Tests)<br>
 - [License](#License)<br>
 - [Questions](#Questions)
 
