@@ -11,9 +11,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://'+process.env.MONGO_ATLAS_USR+':'+ process.env.MONGO_ATLAS_PW+'@cluster0.5kcc6.mongodb.net/workout?retryWrites=true&w=majority', { 
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/workout', { 
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false
+
 });
 
 app.use(routes);
