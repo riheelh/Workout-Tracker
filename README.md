@@ -4,6 +4,7 @@
 ## Description  
 A fitness app to log daily workouts of type, sets, reps, weight and duration of exercise.
 
+**LIVE URL:** https://whispering-hamlet-87994.herokuapp.com/
 
 ![screen01](./assets/screen01.PNG)
 
