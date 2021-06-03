@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const db = require('../models');
 require('dotenv').config();
 
-mongoose.connect('mongodb+srv://'+process.env.MONGO_ATLAS_USR+':'+process.env.MONGO_ATLAS_PW+'@cluster0.5kcc6.mongodb.net/workout?retryWrites=true&w=majority', {
+mongoose.connect('mongodb://localhost/workout', {
   useNewUrlParser: true,
   useFindAndModify: false,
   useUnifiedTopology: true,
